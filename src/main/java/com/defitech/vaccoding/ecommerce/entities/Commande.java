@@ -16,7 +16,9 @@ public class Commande {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(nullable = false)
     private LocalDateTime dateTime;
+    @Column(nullable = false)
     private double montant;
     @ManyToOne
     @JoinColumn(name = "client_id",nullable = false)

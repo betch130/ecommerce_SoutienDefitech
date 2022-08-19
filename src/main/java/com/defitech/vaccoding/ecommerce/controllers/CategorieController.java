@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "/categiries")
+@RequestMapping(path = "/categories")
 public class CategorieController {
     @Autowired
     private CategorieService categorieService;

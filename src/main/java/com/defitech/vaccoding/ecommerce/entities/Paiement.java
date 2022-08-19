@@ -15,8 +15,11 @@ public class Paiement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(nullable = false)
     private double montant;
+    @Column(nullable = false)
     private LocalDateTime datePaiement;
+    @Column(nullable = false)
     private String typePaiement;
     @ManyToOne
     @JoinColumn(name = "commande_id",nullable = false)

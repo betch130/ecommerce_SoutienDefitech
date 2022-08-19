@@ -16,11 +16,12 @@ public class LigneCommande {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
-    @JoinColumn(name = "produit_id",nullable = false)
+    @JoinColumn(name = "produit_id",nullable = false,updatable = false)
     private Produit produit;
     @ManyToOne
-    @JoinColumn(name = "commande_id",nullable = false)
+    @JoinColumn(name = "commande_id",nullable = false,updatable = false)
     private Commande commande;
+    @Column(nullable = false)
     private long quantite;
 
 

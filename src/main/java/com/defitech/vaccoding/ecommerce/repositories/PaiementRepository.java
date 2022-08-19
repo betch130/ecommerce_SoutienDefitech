@@ -6,6 +6,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.stereotype.Repository;
 
-@RepositoryRestResource
+@Repository
 public interface PaiementRepository extends JpaRepository<Paiement, Integer> {
 }
