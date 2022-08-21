@@ -3,11 +3,13 @@ package com.defitech.vaccoding.ecommerce.controllers;
 import com.defitech.vaccoding.ecommerce.entities.Produit;
 import com.defitech.vaccoding.ecommerce.services.ProduitService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/produits")
+@CrossOrigin("*")
 public class ProduitController {
     @Autowired
     private ProduitService produitService;
@@ -31,5 +33,11 @@ public class ProduitController {
     @GetMapping("/{id}")
     public ResponseEntity<?> getProduit(@PathVariable("id") int id ){
         return  ResponseEntity.ok().body(produitService.getProduit(id));
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<String> exceptionHandler(Exception exception){
+        ResponseEntity<String> entity= new ResponseEntity<>(exception.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        return entity;
     }
 }
